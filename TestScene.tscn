@@ -1,0 +1,954 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DiceShape.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LightBlue.gdshader" type="Shader" id=3]
+[ext_resource path="res://DiceButtonRay.gd" type="Script" id=4]
+[ext_resource path="res://ForceOnDiceSignal.gd" type="Script" id=5]
+[ext_resource path="res://LightGray.gdshader" type="Shader" id=6]
+[ext_resource path="res://DeleteOnDiceSignal.gd" type="Script" id=7]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 6 )
+
+[sub_resource type="CylinderShape" id=7]
+
+[sub_resource type="CylinderMesh" id=8]
+
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="CubeMesh" id=10]
+
+[sub_resource type="PlaneMesh" id=11]
+subdivide_width = 8
+subdivide_depth = 8
+
+[sub_resource type="SpatialMaterial" id=12]
+params_cull_mode = 2
+
+[node name="Spatial" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 96, 0, 0, -86 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 1.5, 0, 0, 0, 96, -9.5, 2, -86 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape2"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 1.5, 0, 0, 0, 96, 9.5, 2, -86 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape3"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -2.18557e-08, 0, -9, 0, 1.5, 0, 0.5, 0, -3.93403e-07, 0, 2, 9.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape4"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -2.18557e-08, 0, -9, 0, 1.5, 0, 0.5, 0, -3.93403e-07, 8.34887e-06, 2, -181.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape5"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -1.74846e-08, 0.75, -0.389711, 3.49691e-08, -1.29904, -0.225, -0.4, -1.46349e-07, -2.6353e-09, 7.62939e-06, 5, -162.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape8"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -1.74846e-08, 0.75, -0.389711, 3.49691e-08, -1.29904, -0.225, -0.4, -1.46349e-07, -2.6353e-09, -2.99999, 5, -162.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape10"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -8.74228e-09, -0.75, -0.389711, 5.01112e-08, -1.29904, 0.225, -0.4, -1.46349e-07, 3.6705e-08, -1.99999, 5, -162.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape9"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -8.74228e-09, -0.75, -0.389711, 5.01112e-08, -1.29904, 0.225, -0.4, -1.46349e-07, 3.6705e-08, 1.00001, 5, -162.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape11"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Level1" type="Spatial" parent="."]
+
+[node name="RigidBody" type="RigidBody" parent="Level1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -10.5 )
+continuous_cd = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 7 )
+dice_required = 6
+
+[node name="CollisionShape" type="CollisionShape" parent="Level1/RigidBody"]
+transform = Transform( 1.9, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level1/RigidBody/CollisionShape"]
+mesh = SubResource( 5 )
+
+[node name="DiceButton" type="StaticBody" parent="Level1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.01822, -5 )
+
+[node name="DiceShape" parent="Level1/DiceButton" instance=ExtResource( 2 )]
+disabled = true
+
+[node name="RayCast" type="RayCast" parent="Level1/DiceButton"]
+enabled = true
+cast_to = Vector3( 0, 1, 0 )
+collision_mask = 3
+script = ExtResource( 4 )
+activator = 6
+
+[node name="StaticBody" type="StaticBody" parent="Level1"]
+
+[node name="CollisionShape6" type="CollisionShape" parent="Level1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.482909, -0.518447, 0, 0.129612, 1.93163, 4, 0.498644, -1.19798 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level1/StaticBody/CollisionShape6"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape7" type="CollisionShape" parent="Level1/StaticBody"]
+transform = Transform( 2, 0, 0, 0, 0.5, 0, 0, 0, 2, 4, 1, -5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level1/StaticBody/CollisionShape7"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape10" type="CollisionShape" parent="Level1/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -5, 0, 1.5, 0, 0.5, 0, -2.18557e-07, 4, 2, -10.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level1/StaticBody/CollisionShape10"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="Level1/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -2, 0, 1.5, 0, 0.5, 0, -8.74228e-08, -7, 2, -10.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level1/StaticBody/CollisionShape11"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="Level2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21 )
+
+[node name="RigidBody" type="RigidBody" parent="Level2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -10.5 )
+continuous_cd = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 7 )
+dice_required = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="Level2/RigidBody"]
+transform = Transform( 1.9, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level2/RigidBody/CollisionShape"]
+mesh = SubResource( 5 )
+
+[node name="DiceButton" type="StaticBody" parent="Level2"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.34422, 1.01822, -2.44321 )
+
+[node name="DiceShape" parent="Level2/DiceButton" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0 )
+disabled = true
+
+[node name="RayCast" type="RayCast" parent="Level2/DiceButton"]
+enabled = true
+cast_to = Vector3( 0, 1, 0 )
+collision_mask = 3
+script = ExtResource( 4 )
+activator = 3
+
+[node name="StaticBody" type="StaticBody" parent="Level2"]
+
+[node name="CollisionShape6" type="CollisionShape" parent="Level2/StaticBody"]
+transform = Transform( 0.707107, -0.0916494, -1.36587, 0, 0.482909, -0.518447, 0.707107, 0.0916494, 1.36587, 0.655783, 0.498644, 0.245228 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level2/StaticBody/CollisionShape6"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape7" type="CollisionShape" parent="Level2/StaticBody"]
+transform = Transform( 1.41421, 0, -1.41421, 0, 0.5, 0, 1.41421, 0, 1.41421, 3.34422, 1, -2.44321 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level2/StaticBody/CollisionShape7"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape10" type="CollisionShape" parent="Level2/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -5, 0, 1.5, 0, 0.5, 0, -2.18557e-07, 4, 2, -10.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level2/StaticBody/CollisionShape10"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="Level2/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -2, 0, 1.5, 0, 0.5, 0, -8.74228e-08, -7, 2, -10.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level2/StaticBody/CollisionShape11"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="Level3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42 )
+
+[node name="RigidBody" type="RigidBody" parent="Level3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -10.5 )
+continuous_cd = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 7 )
+dice_required = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Level3/RigidBody"]
+transform = Transform( 1.9, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/RigidBody/CollisionShape"]
+mesh = SubResource( 5 )
+
+[node name="DiceButton" type="StaticBody" parent="Level3"]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -3, 3.01822, 1.80202 )
+
+[node name="DiceShape" parent="Level3/DiceButton" instance=ExtResource( 2 )]
+transform = Transform( -0.5, -4.47035e-08, -1.77636e-15, 0, -2.18557e-08, 0.5, -4.47035e-08, 0.5, 2.18557e-08, 0, 0, 0 )
+disabled = true
+
+[node name="RayCast" type="RayCast" parent="Level3/DiceButton"]
+enabled = true
+cast_to = Vector3( 0, 1, 0 )
+collision_mask = 3
+script = ExtResource( 4 )
+activator = 4
+
+[node name="StaticBody" type="StaticBody" parent="Level3"]
+
+[node name="CollisionShape6" type="CollisionShape" parent="Level3/StaticBody"]
+transform = Transform( -1, -5.87125e-08, -2.91669e-07, 0, 1.44873, -0.518447, 1.50996e-07, -0.388835, -1.93163, 4, 0.532827, -1.74078 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/StaticBody/CollisionShape6"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape7" type="CollisionShape" parent="Level3/StaticBody"]
+transform = Transform( -2, 0, 0, 0, 1.5, 0, 0, 0, -2, 4, 1, 1.80202 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/StaticBody/CollisionShape7"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape12" type="CollisionShape" parent="Level3/StaticBody"]
+transform = Transform( 4.37114e-08, 0.129612, 1.93163, 0, 0.482909, -0.518447, -1, 5.66552e-09, 8.44344e-08, 0.901009, 2.49864, 1.90101 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/StaticBody/CollisionShape12"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape13" type="CollisionShape" parent="Level3/StaticBody"]
+transform = Transform( 8.74228e-08, 0, 2, 0, 0.5, 0, -2, 0, 8.74228e-08, -2.90101, 3, 1.90101 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/StaticBody/CollisionShape13"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape8" type="CollisionShape" parent="Level3/StaticBody"]
+transform = Transform( 4.37114e-08, -0.129612, -1.93163, 0, 0.482909, -0.518447, 1, 5.66552e-09, 8.44344e-08, 0.0989914, 0.498644, -5.09899 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/StaticBody/CollisionShape8"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape9" type="CollisionShape" parent="Level3/StaticBody"]
+transform = Transform( 8.74228e-08, 0, -2, 0, 0.5, 0, 2, 0, 8.74228e-08, 3.90101, 1, -5.09899 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/StaticBody/CollisionShape9"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape10" type="CollisionShape" parent="Level3/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -5, 0, 1.5, 0, 0.5, 0, -2.18557e-07, 4, 2, -10.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/StaticBody/CollisionShape10"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="Level3/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -2, 0, 1.5, 0, 0.5, 0, -8.74228e-08, -7, 2, -10.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level3/StaticBody/CollisionShape11"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="Level4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60 )
+
+[node name="RigidBody" type="RigidBody" parent="Level4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.4, -10.5 )
+continuous_cd = true
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 5 )
+dice_required = 1
+direction = Vector3( 0, 1, 0 )
+force = 1000.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Level4/RigidBody"]
+transform = Transform( 1.9, 0, 0, 0, 1.3, 0, 0, 0, 1, 0, 4, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level4/RigidBody/CollisionShape"]
+mesh = SubResource( 5 )
+
+[node name="RigidBody2" type="RigidBody" parent="Level4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -9.7 )
+continuous_cd = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 5 )
+dice_required = 1
+direction = Vector3( -1, 0, 0 )
+force = 600.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Level4/RigidBody2"]
+transform = Transform( 2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level4/RigidBody2/CollisionShape"]
+mesh = SubResource( 5 )
+
+[node name="DiceButton2" type="StaticBody" parent="Level4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0182152, -1 )
+
+[node name="DiceShape" parent="Level4/DiceButton2" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 4.37114e-08, 0, -4.37114e-08, -0.5, 0, 0, 0 )
+disabled = true
+
+[node name="RayCast" type="RayCast" parent="Level4/DiceButton2"]
+enabled = true
+cast_to = Vector3( 0, 1, 0 )
+collision_mask = 3
+script = ExtResource( 4 )
+activator = 1
+
+[node name="DiceButton3" type="StaticBody" parent="Level4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0182152, -1 )
+
+[node name="DiceShape" parent="Level4/DiceButton3" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 4.37114e-08, 0, -4.37114e-08, -0.5, 0, 0, 0 )
+disabled = true
+
+[node name="RayCast" type="RayCast" parent="Level4/DiceButton3"]
+enabled = true
+cast_to = Vector3( 0, 1, 0 )
+collision_mask = 3
+script = ExtResource( 4 )
+activator = 1
+
+[node name="StaticBody" type="StaticBody" parent="Level4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Level4/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -5, 0, 4, 0, 0.5, 0, -2.18557e-07, 4, 4.5, -72.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level4/StaticBody/CollisionShape5"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="Level4/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -2, 0, 4, 0, 0.5, 0, -8.74228e-08, -7, 4.5, -72.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level4/StaticBody/CollisionShape8"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="Level4/StaticBody"]
+transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, -5.225, 3, -71.7 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level4/StaticBody/CollisionShape10"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape9" type="CollisionShape" parent="Level4/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -2, 0, 0.5, 0, 0.5, 0, -8.74228e-08, -3, 8, -72.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level4/StaticBody/CollisionShape9"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="Level4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.0965817, -0.518447, 0, 0.0259224, 1.93163, 8.90101, 0.884437, -62.7092 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level4/StaticBody/CollisionShape14"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="Level5" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -96 )
+
+[node name="RigidBody" type="RigidBody" parent="Level5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.4, -10.5 )
+continuous_cd = true
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Level5/RigidBody"]
+transform = Transform( 1.9, 0, 0, 0, 1.3, 0, 0, 0, 1, 0, 4, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/RigidBody/CollisionShape"]
+mesh = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Level5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -5, 0, 4, 0, 0.5, 0, -2.18557e-07, 4, 4.5, -72.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape5"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -2, 0, 4, 0, 0.5, 0, -8.74228e-08, -7, 4.5, -72.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape8"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -2, 0, 0.5, 0, 0.5, 0, -8.74228e-08, -3, 8, -72.5 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape9"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.0996195, -0.061009, 0, 0.00871557, 0.697336, -3, 0.451697, -61.6444 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape14"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape15" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.0984808, -0.121554, 0, 0.0173648, 0.689365, -3, 0.622696, -63.0254 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape15"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape16" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.0869333, -0.181173, 0, 0.0232937, 0.676148, -3, 0.925732, -64.384 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape16"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape17" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.0845723, -0.239414, 0, 0.0307818, 0.657785, -3, 1.32987, -65.7098 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape17"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape18" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.0887132, -0.323061, 0, 0.0461516, 0.620992, -3, 1.86286, -66.9884 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape18"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape19" type="CollisionShape" parent="Level5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.0843532, -0.375955, 0, 0.0537079, 0.590472, -3, 2.54901, -68.199 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level5/StaticBody/CollisionShape19"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="Level6" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -132 )
+
+[node name="StaticBody" type="StaticBody" parent="Level6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Level6/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -4, 0, 4, 0, 0.5, 0, -1.74846e-07, 5, 4.5, -71.8907 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/StaticBody/CollisionShape5"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="Level6/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -4, 0, 4, 0, 0.5, 0, -1.74846e-07, -5, 4.5, -71.8907 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/StaticBody/CollisionShape8"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="Level6/StaticBody"]
+transform = Transform( -2.18557e-08, 0, -1, 0, 2, 0, 0.5, 0, -4.37114e-08, 0, 6.5, -71.891 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/StaticBody/CollisionShape9"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="Level6/StaticBody"]
+transform = Transform( -8.74228e-08, 0.259224, 1.93163, 0, 0.965817, -0.518447, -2, -1.1331e-08, -8.44344e-08, 3.83496, 0.0368363, -46 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/StaticBody/CollisionShape14"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape15" type="CollisionShape" parent="Level6/StaticBody"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0.160255, 0.521, -46 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/StaticBody/CollisionShape15"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape16" type="CollisionShape" parent="Level6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.193163, -0.820043, 0, 0.0518447, 3.05532, 0.157232, 1.58514, -48.8517 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/StaticBody/CollisionShape16"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape17" type="CollisionShape" parent="Level6/StaticBody"]
+transform = Transform( -4.37114e-07, 0, -2, 0, 2, 0, 10, 0, -8.74228e-08, 0.157255, 0.597, -61.868 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/StaticBody/CollisionShape17"]
+transform = Transform( 1, -1.86265e-09, 0, 1.19209e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="Hammer" type="Spatial" parent="Level6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="RigidBody" type="RigidBody" parent="Level6/Hammer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level6/Hammer/RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer/RigidBody/CollisionShape"]
+mesh = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Level6/Hammer/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -1.49228, 0 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer/RigidBody/CollisionShape2"]
+mesh = SubResource( 10 )
+
+[node name="HingeJoint" type="HingeJoint" parent="Level6/Hammer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+nodes/node_a = NodePath("../StaticBody2")
+nodes/node_b = NodePath("../RigidBody")
+params/bias = 0.0
+motor/enable = true
+motor/target_velocity = 2.7
+
+[node name="StaticBody2" type="StaticBody" parent="Level6/Hammer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="Hammer2" type="Spatial" parent="Level6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+
+[node name="RigidBody" type="RigidBody" parent="Level6/Hammer2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level6/Hammer2/RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer2/RigidBody/CollisionShape"]
+mesh = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Level6/Hammer2/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -1.49228, 0 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer2/RigidBody/CollisionShape2"]
+mesh = SubResource( 10 )
+
+[node name="HingeJoint" type="HingeJoint" parent="Level6/Hammer2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+nodes/node_a = NodePath("../StaticBody2")
+nodes/node_b = NodePath("../RigidBody")
+params/bias = 0.0
+motor/enable = true
+motor/target_velocity = -2.4
+
+[node name="StaticBody2" type="StaticBody" parent="Level6/Hammer2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="Hammer3" type="Spatial" parent="Level6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+
+[node name="RigidBody" type="RigidBody" parent="Level6/Hammer3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level6/Hammer3/RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer3/RigidBody/CollisionShape"]
+mesh = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Level6/Hammer3/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -1.49228, 0 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer3/RigidBody/CollisionShape2"]
+mesh = SubResource( 10 )
+
+[node name="HingeJoint" type="HingeJoint" parent="Level6/Hammer3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+nodes/node_a = NodePath("../StaticBody2")
+nodes/node_b = NodePath("../RigidBody")
+params/bias = 0.0
+motor/enable = true
+motor/target_velocity = 3.2
+
+[node name="StaticBody2" type="StaticBody" parent="Level6/Hammer3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="Hammer4" type="Spatial" parent="Level6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
+
+[node name="RigidBody" type="RigidBody" parent="Level6/Hammer4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level6/Hammer4/RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer4/RigidBody/CollisionShape"]
+mesh = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Level6/Hammer4/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -1.49228, 0 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer4/RigidBody/CollisionShape2"]
+mesh = SubResource( 10 )
+
+[node name="HingeJoint" type="HingeJoint" parent="Level6/Hammer4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+nodes/node_a = NodePath("../StaticBody2")
+nodes/node_b = NodePath("../RigidBody")
+params/bias = 0.0
+motor/enable = true
+motor/target_velocity = -3.5
+
+[node name="StaticBody2" type="StaticBody" parent="Level6/Hammer4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="Hammer5" type="Spatial" parent="Level6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="RigidBody" type="RigidBody" parent="Level6/Hammer5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level6/Hammer5/RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer5/RigidBody/CollisionShape"]
+mesh = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Level6/Hammer5/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -1.49228, 0 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer5/RigidBody/CollisionShape2"]
+mesh = SubResource( 10 )
+
+[node name="HingeJoint" type="HingeJoint" parent="Level6/Hammer5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+nodes/node_a = NodePath("../StaticBody2")
+nodes/node_b = NodePath("../RigidBody")
+params/bias = 0.0
+motor/enable = true
+motor/target_velocity = 2.5
+
+[node name="StaticBody2" type="StaticBody" parent="Level6/Hammer5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="Hammer6" type="Spatial" parent="Level6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
+
+[node name="RigidBody" type="RigidBody" parent="Level6/Hammer6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level6/Hammer6/RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer6/RigidBody/CollisionShape"]
+mesh = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Level6/Hammer6/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -1.49228, 0 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer6/RigidBody/CollisionShape2"]
+mesh = SubResource( 10 )
+
+[node name="HingeJoint" type="HingeJoint" parent="Level6/Hammer6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+nodes/node_a = NodePath("../StaticBody2")
+nodes/node_b = NodePath("../RigidBody")
+params/bias = 0.0
+motor/enable = true
+motor/target_velocity = -3.0
+
+[node name="StaticBody2" type="StaticBody" parent="Level6/Hammer6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="Hammer7" type="Spatial" parent="Level6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
+
+[node name="RigidBody" type="RigidBody" parent="Level6/Hammer7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level6/Hammer7/RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer7/RigidBody/CollisionShape"]
+mesh = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Level6/Hammer7/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -1.49228, 0 )
+shape = SubResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level6/Hammer7/RigidBody/CollisionShape2"]
+mesh = SubResource( 10 )
+
+[node name="HingeJoint" type="HingeJoint" parent="Level6/Hammer7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+nodes/node_a = NodePath("../StaticBody2")
+nodes/node_b = NodePath("../RigidBody")
+params/bias = 0.0
+motor/enable = true
+motor/target_velocity = 4.0
+
+[node name="StaticBody2" type="StaticBody" parent="Level6/Hammer7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="SoftBody" type="SoftBody" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.53932, -142 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+total_mass = 0.01
+pinned_points = [ 99, 90, 98, 97, 96, 95, 94, 93, 92, 91 ]
+attachments/0/point_index = 99
+attachments/0/spatial_attachment_path = NodePath("")
+attachments/0/offset = Vector3( 0, 0, 0 )
+attachments/1/point_index = 90
+attachments/1/spatial_attachment_path = NodePath("")
+attachments/1/offset = Vector3( 0, 0, 0 )
+attachments/2/point_index = 98
+attachments/2/spatial_attachment_path = NodePath("")
+attachments/2/offset = Vector3( 0, 0, 0 )
+attachments/3/point_index = 97
+attachments/3/spatial_attachment_path = NodePath("")
+attachments/3/offset = Vector3( 0, 0, 0 )
+attachments/4/point_index = 96
+attachments/4/spatial_attachment_path = NodePath("")
+attachments/4/offset = Vector3( 0, 0, 0 )
+attachments/5/point_index = 95
+attachments/5/spatial_attachment_path = NodePath("")
+attachments/5/offset = Vector3( 0, 0, 0 )
+attachments/6/point_index = 94
+attachments/6/spatial_attachment_path = NodePath("")
+attachments/6/offset = Vector3( 0, 0, 0 )
+attachments/7/point_index = 93
+attachments/7/spatial_attachment_path = NodePath("")
+attachments/7/offset = Vector3( 0, 0, 0 )
+attachments/8/point_index = 92
+attachments/8/spatial_attachment_path = NodePath("")
+attachments/8/offset = Vector3( 0, 0, 0 )
+attachments/9/point_index = 91
+attachments/9/spatial_attachment_path = NodePath("")
+attachments/9/offset = Vector3( 0, 0, 0 )
+
+[connection signal="dice_activated" from="Level1/DiceButton/RayCast" to="Level1/RigidBody" method="_on_RayCast_dice_activated"]
+[connection signal="dice_activated" from="Level1/DiceButton/RayCast" to="Level4/RigidBody" method="_on_RayCast_dice_activated"]
+[connection signal="dice_activated" from="Level2/DiceButton/RayCast" to="Level2/RigidBody" method="_on_RayCast_dice_activated"]
+[connection signal="dice_activated" from="Level3/DiceButton/RayCast" to="Level3/RigidBody" method="_on_RayCast_dice_activated"]
+[connection signal="dice_activated" from="Level4/DiceButton2/RayCast" to="Level4/RigidBody" method="_on_RayCast_dice_activated"]
+[connection signal="dice_activated" from="Level4/DiceButton3/RayCast" to="Level4/RigidBody2" method="_on_RayCast_dice_activated"]
